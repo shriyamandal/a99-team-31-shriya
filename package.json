@@ -1,0 +1,27 @@
+{
+  "name": "final-project-team-31",
+  "version": "1.0.0",
+  "description": "Final Project for Team 31",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shriyamandal/a99-team-31-shriya.git"
+  },
+  "author": "Team 31",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/shriyamandal/a99-team-31-shriya/issues"
+  },
+  "homepage": "https://github.com/shriyamandal/a99-team-31-shriya#readme",
+  "dependencies": {
+    "@mtucourses/rate-my-professors": "^2.2.0",
+    "minimist": "^1.2.7"
+  }
+}
