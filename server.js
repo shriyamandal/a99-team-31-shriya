@@ -15,12 +15,12 @@ app.get('/app', (req, res) => {
   })
 
 app.get('/app/ratings/', async(req, res) => {
-    let rating = await computeRating;
+    let rating = await computeRating();
     res.send(rating);
 })
 
 app.get('/app/difficulty/', async(req, res) => {
-    let difficulty = await computeDifficulty;
+    let difficulty = await computeDifficulty();
     res.send(difficulty);
 })
 
