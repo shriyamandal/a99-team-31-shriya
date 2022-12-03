@@ -5,7 +5,12 @@ import express from "express";
 import minimist from "minimist";
 
 const app = express();
+var bodyParser = require('body-parser')
 app.use(express.urlencoded({ extended: true }));
+
+app.configure(function(){
+  app.use(express.bodyParser());
+});
 
 const args = minimist(process.argv.slice(2));
 const port = args.port || 5000;
