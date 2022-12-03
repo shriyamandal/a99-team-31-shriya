@@ -3,9 +3,10 @@
 import { getTeachers, computeDifficulty, computeRating } from './lib/rmp.js';
 import express from "express";
 import minimist from "minimist";
+import bodyParser from "body-parser";
+
 
 const app = express();
-var bodyParser = require('body-parser')
 app.use(express.urlencoded({ extended: true }));
 
 app.configure(function(){
