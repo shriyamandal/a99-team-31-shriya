@@ -5,7 +5,6 @@ import express from "express";
 import minimist from "minimist";
 import bodyParser from "body-parser";
 
-
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,31 +21,31 @@ app.get('/app/ratings/', async(req, res) => {
 })
 
 app.get('/app/ratings/:teachers/', async(req, res) => {
-    const teachersArr = req.body.teachers.split(',')
+    var teachersArr = (req.params.teachers).split("+");
+
+    for (let i = 0; i < teachersArr.length; i++) {
+	teachersArr[i] = teachersArr[i].replaceAll( '-',' ');
+	}
+	
     let rating = await computeRating(teachersArr);
     res.send(rating);
   })
 
-app.get('/app/difficulty/:teachers/', async(req, res) => {
-    console.log("got here")
-    console.log((req.params.teachers));
-    var teachersArr = (req.params.teachers).split("+");
-
-for (let i = 0; i < teachersArr.length; i++) {
-  teachersArr[i] = teachersArr[i].replaceAll( '-',' ');
-}
-   //  const teachersArr = (req.params.teachers).split("+");
-
-    let difficulty = await computeDifficulty(teachersArr);
-    res.send(difficulty);
-  })
-
-
 app.get('/app/difficulty/', async(req, res) => {
-    console.log("got in gen difficulty")
     let difficulty = await computeDifficulty();
     res.send(difficulty);
 })
+
+app.get('/app/difficulty/:teachers/', async(req, res) => {
+    var teachersArr = (req.params.teachers).split("+");
+
+    for (let i = 0; i < teachersArr.length; i++) {
+	teachersArr[i] = teachersArr[i].replaceAll( '-',' ');
+	}
+	
+    let difficulty = await computeDifficulty(teachersArr);
+    res.send(difficulty);
+  })
 
 app.get("*",(req, res) => {
 	res.status(404).send("404 NOT FOUND");
