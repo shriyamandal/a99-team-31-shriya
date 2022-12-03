@@ -29,8 +29,8 @@ app.get('/app/ratings/:teachers/', async(req, res) => {
 
 app.get('/app/difficulty/:teachers/', async(req, res) => {
     console.log("got here")
-    console.log((req.params.teachers));
-    const teachersArr = (req.params.teachers).split(" ");
+    console.log((req.query.teachers));
+    const teachersArr = (req.query.teachers).split(" ");
     let difficulty = await computeDifficulty(teachersArr);
     res.send(difficulty);
   })
