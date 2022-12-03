@@ -30,7 +30,13 @@ app.get('/app/ratings/:teachers/', async(req, res) => {
 app.get('/app/difficulty/:teachers/', async(req, res) => {
     console.log("got here")
     console.log((req.params.teachers));
-    const teachersArr = (req.params.teachers).split("+");
+    var teachersArr = (req.params.teachers).split("+");
+
+for (let i = 0; i < teachersArr.length; i++) {
+  teachersArr[i] = teachersArr[i].replaceAll( '-',' ');
+}
+   //  const teachersArr = (req.params.teachers).split("+");
+
     let difficulty = await computeDifficulty(teachersArr);
     res.send(difficulty);
   })
