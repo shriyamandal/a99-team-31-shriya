@@ -6,7 +6,6 @@ import minimist from "minimist";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.text());
 
 const args = minimist(process.argv.slice(2));
 const port = args.port || 5000;
