@@ -29,7 +29,7 @@ app.get('/app/ratings/:teachers/', async(req, res) => {
 
 app.get('/app/difficulty/:teachers/', async(req, res) => {
     console.log("got here")
-    console.log(parseString(req.body.teachers));
+    console.log((req.body.teachers));
     const teachersArr = (req.body.teachers).split(',')
     let difficulty = await computeDifficulty(teachersArr);
     res.send(difficulty);
