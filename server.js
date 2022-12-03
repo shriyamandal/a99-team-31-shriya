@@ -26,6 +26,7 @@ app.get('/app/ratings/:teachers/', async(req, res) => {
   })
 
 app.get('/app/difficulty/:teachers/', async(req, res) => {
+    console.log("got here")
     console.log(req.body.teachers);
     const teachersArr = req.body.teachers.split(',')
     let difficulty = await computeDifficulty(teachersArr);
@@ -34,6 +35,7 @@ app.get('/app/difficulty/:teachers/', async(req, res) => {
 
 
 app.get('/app/difficulty/', async(req, res) => {
+    console.log("got in gen difficulty")
     let difficulty = await computeDifficulty();
     res.send(difficulty);
 })
