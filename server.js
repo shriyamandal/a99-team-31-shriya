@@ -25,17 +25,18 @@ app.get('/app/ratings/:teachers/', async(req, res) => {
     res.send(rating);
   })
 
-app.get('/app/difficulty/', async(req, res) => {
-    let difficulty = await computeDifficulty();
-    res.send(difficulty);
-})
-
 app.get('/app/difficulty/:teachers/', async(req, res) => {
     console.log(req.body.teachers);
     const teachersArr = req.body.teachers.split(',')
     let difficulty = await computeDifficulty(teachersArr);
     res.send(difficulty);
   })
+
+
+app.get('/app/difficulty/', async(req, res) => {
+    let difficulty = await computeDifficulty();
+    res.send(difficulty);
+})
 
 app.get("*",(req, res) => {
 	res.status(404).send("404 NOT FOUND");
