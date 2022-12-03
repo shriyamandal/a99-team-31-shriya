@@ -19,10 +19,22 @@ app.get('/app/ratings/', async(req, res) => {
     res.send(rating);
 })
 
+app.post('/app/ratings/', (req, res) => {
+    const teachersArr = req.body.teachers.split(',')
+    let rating = await computeRating(teachersArr);
+    res.send(rating);
+  })
+
 app.get('/app/difficulty/', async(req, res) => {
     let difficulty = await computeDifficulty();
     res.send(difficulty);
 })
+
+app.post('/app/difficulty/', (req, res) => {
+    const teachersArr = req.body.teachers.split(',')
+    let difficulty = await computeDifficulty(teachersArr);
+    res.send(difficulty);
+  })
 
 app.get("*",(req, res) => {
 	res.status(404).send("404 NOT FOUND");
