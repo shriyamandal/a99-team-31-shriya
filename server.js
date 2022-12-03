@@ -19,7 +19,7 @@ app.get('/app/ratings/', async(req, res) => {
     res.send(rating);
 })
 
-app.post('/app/ratings/:teachers/', (req, res) => {
+app.post('/app/ratings/:teachers/', async(req, res) => {
     const teachersArr = req.body.teachers.split(',')
     let rating = await computeRating(teachersArr);
     res.send(rating);
@@ -30,7 +30,7 @@ app.get('/app/difficulty/', async(req, res) => {
     res.send(difficulty);
 })
 
-app.post('/app/difficulty/:teachers/', (req, res) => {
+app.post('/app/difficulty/:teachers/', async(req, res) => {
     const teachersArr = req.body.teachers.split(',')
     let difficulty = await computeDifficulty(teachersArr);
     res.send(difficulty);
