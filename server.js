@@ -6,6 +6,7 @@ import minimist from "minimist";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.text());
 
 const args = minimist(process.argv.slice(2));
 const port = args.port || 5000;
@@ -31,6 +32,7 @@ app.get('/app/difficulty/', async(req, res) => {
 })
 
 app.get('/app/difficulty/:teachers/', async(req, res) => {
+    console.log(req.body.teachers);
     const teachersArr = req.body.teachers.split(',')
     let difficulty = await computeDifficulty(teachersArr);
     res.send(difficulty);
