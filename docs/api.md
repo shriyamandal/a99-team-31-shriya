@@ -1,4 +1,4 @@
-# Rate My Courses API Documentation
+# Rate My Semester API Documentation
 
 ## Endpoints
 
